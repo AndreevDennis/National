@@ -16,7 +16,7 @@ const HumanitarianSector: FC = () => {
 
 	return (
 		<>
-			<Seo title={humanitarianSector["seoTitle"][language]} />
+			<Seo language={language} title={humanitarianSector["seoTitle"][language]} />
 			<Header language={language} translation={translation} changeLanguage={changeLanguage} />
 			<main>
 				<Modal overlay active={isActive} closeModal={closeModal} displayType="flex">

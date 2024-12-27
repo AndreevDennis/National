@@ -82,7 +82,7 @@ const Home: NextPage<HomeProps> = ({ services, allArticles, productsInfo, catego
 
 	return (
 		<>
-			<Seo />
+			<Seo language={language} />
 			<Header language={language} translation={translation} changeLanguage={changeLanguage} />
 			<main>
 				<Modal overlay active={isActive} closeModal={closeModal} displayType="flex">

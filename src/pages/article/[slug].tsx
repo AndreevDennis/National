@@ -98,7 +98,12 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 
 	return (
 		<>
-			<Seo title={title} description={description} img={url} />
+			<Seo
+				language={language}
+				title={language === "ua" ? `National - ${title}` : `National - ${titleEn}`}
+				description={language === "ua" ? description : descriptionEn}
+				img={url}
+			/>
 			<Header language={language} translation={translation} changeLanguage={changeLanguage} />
 			<main>
 				<Modal overlay active={isActive} closeModal={closeModal} displayType="flex">
@@ -108,7 +113,7 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 					<div className="container">
 						<article className="blog__article">
 							<div className="blog__wrapper">
-								<Image className="blog__img" src={url} alt={title} fill />
+								<Image className="blog__img" src={url} alt={language === "ua" ? title : titleEn} fill />
 							</div>
 							<div className="blog__info">
 								<div className="blog__top">
