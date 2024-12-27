@@ -136,8 +136,11 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 										<use xlinkHref="/img/icons.svg#call" />
 									</svg>
 									<div>
-										<a href={`tel:${socials.phone}`} className="contactForm__phone">
-											{socials.phone}
+										<a href={`tel:${socials.phone1}`} className="contactForm__phone">
+											{socials.phone1}
+										</a>
+										<a href={`tel:${socials.phone2}`} className="contactForm__phone">
+											{socials.phone2}
 										</a>
 									</div>
 								</div>
