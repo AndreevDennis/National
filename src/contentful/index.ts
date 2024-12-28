@@ -5,10 +5,14 @@ import { apolloClient } from "./apolloClient";
 import {
 	GeServiceBySlugQuery,
 	GeServiceBySlugQueryVariables,
+	GetAllArticlesForSeoQuery,
+	GetAllArticlesForSeoQueryVariables,
 	GetAllArticlesQuery,
 	GetAllArticlesQueryVariables,
 	GetAllArticlesSlugsQuery,
 	GetAllArticlesSlugsQueryVariables,
+	GetAllServicesForSeoQuery,
+	GetAllServicesForSeoQueryVariables,
 	GetAllServicesQuery,
 	GetAllServicesQueryVariables,
 	GetAllServicesSlugsQuery,
@@ -18,6 +22,27 @@ import {
 	GetProductsQuery,
 	GetProductsQueryVariables,
 } from "../@types/contentfulSchema";
+
+export const getAllArticlesForSeo = async () => {
+	const allArticlesForSeo = gql`
+		query getAllArticlesForSeo {
+			articleCollection {
+				items {
+					slug
+					sys {
+						publishedAt
+					}
+				}
+			}
+		}
+	`;
+
+	const { data } = await apolloClient.query<GetAllArticlesForSeoQuery, GetAllArticlesForSeoQueryVariables>({
+		query: allArticlesForSeo,
+	});
+
+	return data;
+};
 
 export const getAllArticles = async () => {
 	const allTagsQuery = gql`
@@ -239,6 +264,27 @@ export const getProducts = async () => {
 
 	const { data } = await apolloClient.query<GetProductsQuery, GetProductsQueryVariables>({
 		query: products,
+	});
+
+	return data;
+};
+
+export const getAllServicesForSeo = async () => {
+	const allServicesForSeo = gql`
+		query getAllServicesForSeo {
+			serviceCollection {
+				items {
+					slug
+					sys {
+						publishedAt
+					}
+				}
+			}
+		}
+	`;
+
+	const { data } = await apolloClient.query<GetAllServicesForSeoQuery, GetAllServicesForSeoQueryVariables>({
+		query: allServicesForSeo,
 	});
 
 	return data;

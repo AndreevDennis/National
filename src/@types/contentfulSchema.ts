@@ -1552,6 +1552,11 @@ export type CfProductSubcategoryNestedFilter = {
   sys: InputMaybe<SysFilter>;
 };
 
+export type GetAllArticlesForSeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllArticlesForSeoQuery = { __typename?: 'Query', articleCollection: { __typename?: 'ArticleCollection', items: Array<{ __typename?: 'Article', slug: string, sys: { __typename?: 'Sys', publishedAt: any } }> } };
+
 export type GetAllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1573,6 +1578,11 @@ export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetProductsQuery = { __typename?: 'Query', categoriesList: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, order: number, nameEn: string }> }, subCategoriesList: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string, nameEn: string, category: { __typename?: 'ProductCategory', name: string } }> }, categories: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, order: number, linkedFrom: { __typename?: 'ProductCategoryLinkingCollections', productSubcategoryCollection: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string }> } } }> }, products: { __typename?: 'ProductCollection', items: Array<{ __typename?: 'Product', name: string, quantity: string, info: any, nameEn: string, quantityEn: string, infoEn: any, image: { __typename?: 'Asset', url: string }, category: { __typename?: 'ProductCategory', name: string }, subcategory: { __typename?: 'ProductSubcategory', name: string } }> } };
+
+export type GetAllServicesForSeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllServicesForSeoQuery = { __typename?: 'Query', serviceCollection: { __typename?: 'ServiceCollection', items: Array<{ __typename?: 'Service', slug: string, sys: { __typename?: 'Sys', publishedAt: any } }> } };
 
 export type GetAllServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
