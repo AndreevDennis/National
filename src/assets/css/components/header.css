@@ -128,7 +128,7 @@
 	overflow-y: hidden;
 	transition: max-height 0.4s ease;
 	position: absolute;
-	top: 50px;
+	top: 48px;
 	left: -25px;
 	z-index: 20;
 	min-width: 290px;

@@ -69,27 +69,27 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 							<div ref={deskContent} className="header__subNav" style={{ maxHeight: `${deskSubNavheight}` }}>
 								<ul className="header__subNav-ul">
 									<li className="header__element">
-										<Link href="/aboutUs" className="header__link" onClick={toggleMobileNav} scroll={false}>
+										<Link href="/aboutUs" className="header__link" onClick={toggleDeskSubNav} scroll={false}>
 											{translation["navAboutUs"][language]}
 										</Link>
 									</li>
-									<li className="header__element">
-										<Link href="/aboutUs#history" className="header__link" onClick={toggleMobileNav} scroll={false}>
+									{/* <li className="header__element">
+										<Link href="/aboutUs#history" className="header__link" onClick={toggleDeskSubNav} scroll={false}>
 											{translation["navHistory"][language]}
 										</Link>
-									</li>
+									</li> */}
 									<li className="header__element">
-										<Link href="/aboutUs#values" className="header__link" onClick={toggleMobileNav} scroll={false}>
+										<Link href="/aboutUs#values" className="header__link" onClick={toggleDeskSubNav} scroll={false}>
 											{translation["navValues"][language]}
 										</Link>
 									</li>
 									<li className="header__element">
-										<Link href="/humanitarianSector" className="header__link" onClick={toggleMobileNav} scroll={false}>
+										<Link href="/humanitarianSector" className="header__link" onClick={toggleDeskSubNav} scroll={false}>
 											{translation["navHumanitarianSector"][language]}
 										</Link>
 									</li>
 									<li className="header__element">
-										<Link href="/aboutUs#team" className="header__link" onClick={toggleMobileNav} scroll={false}>
+										<Link href="/aboutUs#team" className="header__link" onClick={toggleDeskSubNav} scroll={false}>
 											{translation["navTeam"][language]}
 										</Link>
 									</li>
@@ -165,11 +165,11 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 									{translation["navAboutUs"][language]}
 								</Link>
 							</li>
-							<li className="header__element">
+							{/* <li className="header__element">
 								<Link href="/aboutUs#history" className="header__link" onClick={toggleMobileNav} scroll={false}>
 									{translation["navHistory"][language]}
 								</Link>
-							</li>
+							</li> */}
 							<li className="header__element">
 								<Link href="/aboutUs#values" className="header__link" onClick={toggleMobileNav} scroll={false}>
 									{translation["navValues"][language]}
