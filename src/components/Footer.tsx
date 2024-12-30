@@ -33,11 +33,11 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 												{translation["navAboutUs"][language]}
 											</Link>
 										</li>
-										<li className="footer__elem">
+										{/* <li className="footer__elem">
 											<Link href="/aboutUs#history" className="footer__link" scroll={false}>
 												{translation["navHistory"][language]}
 											</Link>
-										</li>
+										</li> */}
 										<li className="footer__elem">
 											<Link href="/aboutUs#values" className="footer__link" scroll={false}>
 												{translation["navValues"][language]}
