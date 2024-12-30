@@ -1,0 +1,132 @@
+.aboutUsValues {
+	position: relative;
+	padding: 26px 0 54px 0;
+	background-color: #f1f1f1;
+}
+
+.aboutUsValues__dec {
+	display: none;
+}
+
+.aboutUsValues__title {
+	font-family: "Days One", sans-serif;
+	font-size: 30px;
+	line-height: 38px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0 0 30px 0;
+}
+
+.aboutUsValues__cards {
+	display: grid;
+	gap: 20px;
+}
+
+.aboutUsValues__card {
+	border-radius: 20px;
+	background-color: var(--bg-color);
+	box-shadow: 10px 10px 10px 0px #0000001a;
+}
+
+.aboutUsValues__picture {
+	width: 100%;
+	position: relative;
+	margin-bottom: 23px;
+	aspect-ratio: 16 / 8.2;
+}
+
+.aboutUsValues__img {
+	display: block;
+	object-fit: cover;
+	border-radius: 20px;
+}
+
+.aboutUsValues__card:nth-child(4) .aboutUsValues__img {
+	object-position: 50% 0%;
+}
+
+.aboutUsValues__content {
+	padding: 0 24px 30px 24px;
+}
+
+.aboutUsValues__subTitle {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 24px;
+	margin: 0 0 10px 0;
+}
+
+.aboutUsValues__text {
+	font-size: 20px;
+	line-height: 24px;
+	margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+	.aboutUsValues__card {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.aboutUsValues__card:nth-child(even) > .aboutUsValues__picture {
+		order: 1;
+	}
+
+	.aboutUsValues__picture {
+		margin-bottom: 0;
+		aspect-ratio: 16 / 10.4;
+	}
+
+	.aboutUsValues__card:nth-child(3) .aboutUsValues__picture {
+		aspect-ratio: 16 / 11.4;
+	}
+
+	.aboutUsValues__card:nth-child(4) .aboutUsValues__picture {
+		aspect-ratio: 16 / 11.4;
+	}
+
+	.aboutUsValues__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0 41px 0 50px;
+	}
+
+	.aboutUsValues__card:nth-child(even) > .aboutUsValues__content {
+		padding: 0 19px 0 72px;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.aboutUsValues {
+		padding: 50px 0 90px 0;
+	}
+
+	.aboutUsValues__title {
+		font-size: 48px;
+		line-height: 61px;
+	}
+
+	.aboutUsValues__cards {
+		gap: 30px;
+	}
+
+	.aboutUsValues__subTitle {
+		font-size: 24px;
+		line-height: 29px;
+	}
+
+	.aboutUsValues__text {
+		font-size: 24px;
+		line-height: 29px;
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	.aboutUsValues__dec {
+		display: block;
+		position: absolute;
+		right: 0;
+		bottom: -6px;
+	}
+}

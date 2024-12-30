@@ -1,0 +1,116 @@
+.aboutUsCompany {
+	padding: 100px 0;
+}
+
+.aboutUsCompany__title {
+	font-family: "Days One", sans-serif;
+	font-size: 30px;
+	line-height: 38px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0 0 5px 0;
+}
+
+.aboutUsCompany__description {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 24px;
+	text-align: center;
+	color: var(--accent);
+	margin: 0 0 50px 0;
+}
+
+.aboutUsCompany__cards {
+	display: grid;
+	gap: 20px;
+}
+
+.aboutUsCompany__card {
+	display: flex;
+	flex-direction: column;
+	padding: 20px 6px 7px 6px;
+	border-radius: 20px;
+	background-color: var(--accent);
+}
+
+.aboutUsCompany__header {
+	display: grid;
+	align-items: center;
+	gap: 15px;
+	padding: 0 10px;
+	margin-bottom: 13px;
+}
+
+.aboutUsCompany__subTitle {
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 25px;
+	text-wrap: balance;
+	color: var(--white-text);
+	margin: 0;
+}
+
+.aboutUsCompany__body {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	padding: 18px 16px;
+	border-radius: 16px;
+	background-color: var(--bg-color);
+}
+
+.aboutUsCompany__list {
+	margin: 0;
+	padding: 0;
+	padding-left: 18px;
+}
+
+.aboutUsCompany__li {
+	font-size: 20px;
+	line-height: 23px;
+	margin-bottom: 12px;
+}
+
+.aboutUsCompany__li:last-child {
+	margin-bottom: 0;
+}
+
+.aboutUsCompany__text {
+	font-size: 20px;
+	line-height: 29px;
+	margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+	.aboutUsCompany {
+		padding: 150px 0;
+	}
+
+	.aboutUsCompany__title {
+		font-size: 48px;
+		line-height: 61px;
+	}
+
+	.aboutUsCompany__description {
+		font-size: 24px;
+		line-height: 29px;
+	}
+
+	.aboutUsCompany__cards {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	.aboutUsCompany__subTitle {
+		font-size: 24px;
+		line-height: 25px;
+	}
+
+	.aboutUsCompany__li {
+		font-size: 22px;
+		margin-bottom: 18px;
+	}
+
+	.aboutUsCompany__text {
+		font-size: 22px;
+	}
+}

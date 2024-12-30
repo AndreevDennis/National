@@ -407,3 +407,144 @@ export const humanitarianSector = {
 		ua: "*Усі замовлення та набори в 100% персоналізовані залежно від вимог замовника",
 	},
 } as const;
+
+export const aboutUs = {
+	bannerTitle: {
+		en: "About Us",
+		ua: "Про Нас",
+	},
+	bannerText1: {
+		en: 'PE "National"',
+		ua: 'ПП "Націонал"',
+	},
+	bannerText2: {
+		en: "- is a company with more than 30 years of experience in the production and supply of high-quality food products that meet the highest national and international standards.",
+		ua: "- це компанія з більш ніж 30-річним досвідом виробництва та постачання високоякісних продуктів харчування, що відповідають найвищим національним і міжнародним стандартам.",
+	},
+	bannerText3: {
+		en: "Since 1992, we have been producing balanced products with excellent taste characteristics using modern production methods.",
+		ua: "Від 1992 року ми виробляємо збалансовані продукти з відмінними смаковими характеристиками, використовуючи сучасні методи виробництва.",
+	},
+	statistic1: {
+		en: "years of experience",
+		ua: "років досвіду",
+	},
+	statistic2: {
+		en: "finished products",
+		ua: "готової продукції",
+	},
+	statistic3: {
+		en: "per shift",
+		ua: "за зміну",
+	},
+	statistic4: {
+		en: "production and storage",
+		ua: "виробничих і складських",
+	},
+	statistic5: {
+		en: "facilities",
+		ua: "приміщень",
+	},
+	valuesTitle: {
+		en: "Our values",
+		ua: "Наші цінності",
+	},
+	valuesSubTitle1: {
+		en: "Creating product from 0",
+		ua: "Створення продукту з 0",
+	},
+	valuesSubTitle2: {
+		en: "Quality",
+		ua: "Якість",
+	},
+	valuesSubTitle3: {
+		en: "Reliability",
+		ua: "Надійність",
+	},
+	valuesSubTitle4: {
+		en: "Individual approach",
+		ua: "Індивідуальний підхід",
+	},
+	valuesText1: {
+		en: "Production and order fulfillment processes are open and transparent.",
+		ua: "Процеси виробництва та реалізації замовлень є відкритими та прозорими.",
+	},
+	valuesText2: {
+		en: "Our production is certified and our products meet the highest quality standards.",
+		ua: "Наше виробництво сертифіковане, а продукція відповідає найвищим стандартам якості.",
+	},
+	valuesText3: {
+		en: "Split production processes allow us to control quality and timeliness at every stage and quickly adapt to fulfill urgent orders.",
+		ua: "Розділені виробничі процеси дозволяють контролювати якість та терміновість на кожному етапі та швидко адаптуватися для виконання термінових замовлень.",
+	},
+	valuesText4: {
+		en: "All orders are personalized to the client's specific requirements, from the type of product to the set of kits.",
+		ua: "Усі замовлення персоналізовані під конкретні вимоги клієнта, від типу продукту до комплектації наборів.",
+	},
+	companyTitle: {
+		en: "Company structure",
+		ua: "Структура компанії",
+	},
+	companyDescription: {
+		en: "Divisions and facilities",
+		ua: "Підрозділи та потужності",
+	},
+	companySubTitle1: {
+		en: "Own production lines",
+		ua: "Власні виробничі лінії",
+	},
+	companySubTitle2: {
+		en: 'Turnkey product "sets"',
+		ua: 'Продуктові набори "під ключ&quot"',
+	},
+	companySubTitle3: {
+		en: "Logistics and delivery",
+		ua: "Логістика та доставка",
+	},
+	companyText: {
+		en: "A full cycle of purchasing, quality control, packaging of food products and kits personalized to the customer's requirements and expectations.",
+		ua: "Повний цикл закупівлі, контролю якості, пакування продовольчих продуктів та наборів, персоналізованих під вимоги та очікування клієнта.",
+	},
+	companyLi1: {
+		en: "Drinks",
+		ua: "Напої",
+	},
+	companyLi2: {
+		en: "Canned food",
+		ua: "Консерви",
+	},
+	companyLi3: {
+		en: "Long-term storage dishes",
+		ua: "Страви довготривалого збірегання",
+	},
+	companyLi4: {
+		en: "Soucie",
+		ua: "Соуси",
+	},
+	companyLi5: {
+		en: "Private Label",
+		ua: "Private Label",
+	},
+	companyLi6: {
+		en: "Storage in accordance with food industry standards",
+		ua: "Зберігання відповідно до норм харчової промисловості",
+	},
+	companyLi7: {
+		en: "Wide range of delivery options",
+		ua: "Широкий вибір варіантів доставки",
+	},
+	companyLi8: {
+		en: "Full set of transportation documents",
+		ua: "Повний комплект транспортних документів",
+	},
+	companyLi9: {
+		en: '"Last Mile Delievery" delivery',
+		ua: "Доставка “Last Mile Delievery”",
+	},
+	teamTitle: {
+		en: "Our team",
+		ua: "Наша команда",
+	},
+} as const;
+
+export type AboutUsType = typeof aboutUs;

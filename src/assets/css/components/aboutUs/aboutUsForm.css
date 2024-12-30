@@ -1,0 +1,9 @@
+.aboutUsForm {
+	padding: 100px 0;
+}
+
+@media screen and (min-width: 1208px) {
+	.aboutUsForm {
+		padding: 150px 0;
+	}
+}

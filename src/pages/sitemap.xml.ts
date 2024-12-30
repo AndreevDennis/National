@@ -21,6 +21,13 @@ const generateSitemap = async (services: SeoData, articles: SeoData) => {
 			</url>
 
 			<url>
+				<loc>https://www.national.ua/aboutUs</loc>
+				<lastmod>2024-12-30T19:33:22.682Z</lastmod>
+				<changefreq>daily</changefreq>
+				<priority>1.0</priority>
+			</url>
+
+			<url>
 				<loc>https://www.national.ua/humanitarianSector</loc>
 				<lastmod>2024-12-30T19:33:22.682Z</lastmod>
 				<changefreq>daily</changefreq>

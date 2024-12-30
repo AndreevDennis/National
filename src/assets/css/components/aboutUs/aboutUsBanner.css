@@ -1,0 +1,161 @@
+.aboutUsBanner {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.aboutUsBanner__bg {
+	object-fit: cover;
+	filter: blur(3px);
+}
+
+.aboutUsBanner__shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000000b2;
+}
+
+.aboutUsBanner__content {
+	position: relative;
+	padding: 57px 0 83px 0;
+	color: var(--white-text);
+}
+
+.aboutUsBanner__svg {
+	display: none;
+}
+
+.aboutUsBanner__picture {
+	width: 65%;
+	margin: 0 auto;
+	position: relative;
+	aspect-ratio: 10 / 8.4;
+	margin-bottom: 23px;
+}
+
+.aboutUsBanner__dec {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 125%;
+	height: 80%;
+	border-radius: 20px;
+	background-color: var(--accent);
+	transform: translate(-50%, -50%);
+}
+
+.aboutUsBanner__img {
+	display: block;
+	object-fit: cover;
+}
+
+.aboutUsBanner__titel {
+	font-family: "Days One", sans-serif;
+	font-size: 30px;
+	line-height: 38px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0 0 25px 0;
+}
+
+.aboutUsBanner__titel--desk {
+	display: none;
+}
+
+.aboutUsBanner__text {
+	font-size: 17px;
+	line-height: 20px;
+	margin: 0 0 15px 0;
+}
+
+.aboutUsBanner__text:last-child {
+	margin-bottom: 0;
+}
+
+@media screen and (min-width: 800px) {
+	.aboutUsBanner__content {
+		display: grid;
+		grid-template-columns: 200px 1fr;
+		gap: 45px;
+	}
+
+	.aboutUsBanner__picture {
+		max-width: 200px;
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		margin-bottom: 0;
+	}
+
+	.aboutUsBanner__dec {
+		top: 48%;
+		width: 110%;
+		height: 65%;
+		border-radius: 0;
+		border-top-right-radius: 60px;
+	}
+
+	.aboutUsBanner__titel {
+		margin: 0;
+		text-align: left;
+		margin-bottom: -5px;
+	}
+
+	.aboutUsBanner__titel--desk {
+		display: block;
+	}
+
+	.aboutUsBanner__titel--mob {
+		display: none;
+	}
+
+	.aboutUsBanner__footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+
+@media screen and (min-width: 1170px) {
+	.aboutUsBanner__content {
+		padding: 156px 0 94px 0;
+		grid-template-columns: 378px 1fr;
+		gap: 75px;
+	}
+
+	.aboutUsBanner__picture {
+		max-width: 302px;
+	}
+
+	.aboutUsBanner__dec {
+		width: 125%;
+		height: 68%;
+	}
+
+	.aboutUsBanner__titel {
+		font-size: 48px;
+		line-height: 61px;
+	}
+
+	.aboutUsBanner__footer {
+		padding-top: 32px;
+	}
+
+	.aboutUsBanner__text {
+		font-size: 24px;
+		line-height: 29px;
+		margin: 0 0 30px 0;
+	}
+}
+@media screen and (min-width: 1440px) {
+	.aboutUsBanner__svg {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 35px;
+	}
+}
