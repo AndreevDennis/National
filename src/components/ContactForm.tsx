@@ -1,17 +1,17 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from "react";
-import Image from "next/image";
 
 import { translationType } from "../utils/translation";
 import { socials } from "../constants";
 
 type ContactFormProps = {
-	active: boolean;
 	language: "en" | "ua";
 	translation: translationType;
-	closeModal: () => void;
-};
+} & (
+	| { isInline: true; active: true; closeModal?: never }
+	| { isInline?: never; active: boolean; closeModal: () => void }
+);
 
-export const ContactForm: FC<ContactFormProps> = ({ active, language, translation, closeModal }) => {
+export const ContactForm: FC<ContactFormProps> = ({ isInline, active, language, translation, closeModal }) => {
 	const initialState = {
 		name: "",
 		phone: "",
@@ -67,17 +67,22 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 	};
 
 	return (
-		<form className={`contactForm ${active ? "contactForm--active" : ""}`} onSubmit={formHandler}>
+		<form
+			onSubmit={formHandler}
+			className={`contactForm ${active ? "contactForm--active" : ""} ${isInline ? "contactForm--inline" : ""}`}
+		>
 			<div className="container">
 				<div className="contactForm__container">
 					<div className="contactForm__wrapper">
 						<div className="contactForm__top">
 							<h2 className="contactForm__title">{translation["contactTitle1"][language]}</h2>
-							<button className="footer__close" type="button" aria-label="Close modal form" onClick={closeModal}>
-								<svg width="23" height="22" aria-hidden="true">
-									<use xlinkHref="/img/icons.svg#close" />
-								</svg>
-							</button>
+							{!isInline && (
+								<button className="footer__close" type="button" aria-label="Close modal form" onClick={closeModal}>
+									<svg width="23" height="22" aria-hidden="true">
+										<use xlinkHref="/img/icons.svg#close" />
+									</svg>
+								</button>
+							)}
 						</div>
 						<input
 							type="text"
@@ -136,8 +141,11 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 										<use xlinkHref="/img/icons.svg#call" />
 									</svg>
 									<div>
-										<a href={`tel:${socials.phone}`} className="contactForm__phone">
-											{socials.phone}
+										<a href={`tel:${socials.phone1}`} className="contactForm__phone">
+											{socials.phone1}
+										</a>
+										<a href={`tel:${socials.phone2}`} className="contactForm__phone">
+											{socials.phone2}
 										</a>
 									</div>
 								</div>
@@ -163,26 +171,6 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 										</span>
 									</p>
 								</div>
-							</div>
-							<div className="contactForm__socials">
-								<a href="#" className="contactForm__social" target="_blank" rel="noreferrer noopener">
-									<Image
-										className="contactForm__social-img"
-										src="/img/socials/facebook-red.png"
-										width="44"
-										height="44"
-										alt="Facebook"
-									/>
-								</a>
-								<a href={socials.telegram} className="contactForm__social" target="_blank" rel="noreferrer noopener">
-									<Image
-										className="contactForm__social-img"
-										src="/img/socials/telegram-red.png"
-										width="44"
-										height="44"
-										alt="Telegram"
-									/>
-								</a>
 							</div>
 						</div>
 					</div>

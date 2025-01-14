@@ -18,8 +18,9 @@ export type Scalars = {
 };
 
 /** Стаття для блогу [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
-export type Article = Entry & {
+export type Article = Entry & _Node & {
   __typename?: 'Article';
+  _id: Scalars['ID'];
   contentfulMetadata: ContentfulMetadata;
   date: Maybe<Scalars['DateTime']>;
   description: Maybe<Scalars['String']>;
@@ -176,6 +177,29 @@ export type ArticleTextLinks = {
   __typename?: 'ArticleTextLinks';
   assets: ArticleTextAssets;
   entries: ArticleTextEntries;
+  resources: ArticleTextResources;
+};
+
+export type ArticleTextResources = {
+  __typename?: 'ArticleTextResources';
+  block: Array<ArticleTextResourcesBlock>;
+  hyperlink: Array<ArticleTextResourcesHyperlink>;
+  inline: Array<ArticleTextResourcesInline>;
+};
+
+export type ArticleTextResourcesBlock = ResourceLink & {
+  __typename?: 'ArticleTextResourcesBlock';
+  sys: ResourceSys;
+};
+
+export type ArticleTextResourcesHyperlink = ResourceLink & {
+  __typename?: 'ArticleTextResourcesHyperlink';
+  sys: ResourceSys;
+};
+
+export type ArticleTextResourcesInline = ResourceLink & {
+  __typename?: 'ArticleTextResourcesInline';
+  sys: ResourceSys;
 };
 
 /** Represents a binary file in a space. An asset can be any file type. */
@@ -391,10 +415,26 @@ export enum AssetOrder {
 
 export type ContentfulMetadata = {
   __typename?: 'ContentfulMetadata';
+  concepts: Array<Maybe<TaxonomyConcept>>;
   tags: Array<Maybe<ContentfulTag>>;
 };
 
+export type ContentfulMetadataConceptsDescendantsFilter = {
+  id_contains_all: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_none: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_some: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ContentfulMetadataConceptsFilter = {
+  descendants: InputMaybe<ContentfulMetadataConceptsDescendantsFilter>;
+  id_contains_all: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_none: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_some: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type ContentfulMetadataFilter = {
+  concepts: InputMaybe<ContentfulMetadataConceptsFilter>;
+  concepts_exists: InputMaybe<Scalars['Boolean']>;
   tags: InputMaybe<ContentfulMetadataTagsFilter>;
   tags_exists: InputMaybe<Scalars['Boolean']>;
 };
@@ -407,7 +447,7 @@ export type ContentfulMetadataTagsFilter = {
 
 /**
  * Represents a tag entity for finding and organizing content easily.
- *     Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
+ *       Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
  */
 export type ContentfulTag = {
   __typename?: 'ContentfulTag';
@@ -542,8 +582,9 @@ export type ImageTransformOptions = {
 };
 
 /** Продукт [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
-export type Product = Entry & {
+export type Product = Entry & _Node & {
   __typename?: 'Product';
+  _id: Scalars['ID'];
   category: Maybe<ProductCategory>;
   contentfulMetadata: ContentfulMetadata;
   image: Maybe<Asset>;
@@ -560,6 +601,7 @@ export type Product = Entry & {
 export type ProductCategoryArgs = {
   locale: InputMaybe<Scalars['String']>;
   preview: InputMaybe<Scalars['Boolean']>;
+  where: InputMaybe<ProductCategoryFilter>;
 };
 
 
@@ -598,11 +640,13 @@ export type ProductQuantityArgs = {
 export type ProductSubcategoryArgs = {
   locale: InputMaybe<Scalars['String']>;
   preview: InputMaybe<Scalars['Boolean']>;
+  where: InputMaybe<ProductSubcategoryFilter>;
 };
 
 /** Категорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productCategory) */
-export type ProductCategory = Entry & {
+export type ProductCategory = Entry & _Node & {
   __typename?: 'ProductCategory';
+  _id: Scalars['ID'];
   contentfulMetadata: ContentfulMetadata;
   linkedFrom: Maybe<ProductCategoryLinkingCollections>;
   name: Maybe<Scalars['String']>;
@@ -678,6 +722,7 @@ export type ProductCategoryLinkingCollectionsEntryCollectionArgs = {
 export type ProductCategoryLinkingCollectionsProductCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale: InputMaybe<Scalars['String']>;
+  order: InputMaybe<Array<InputMaybe<ProductCategoryLinkingCollectionsProductCollectionOrder>>>;
   preview: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
@@ -686,9 +731,38 @@ export type ProductCategoryLinkingCollectionsProductCollectionArgs = {
 export type ProductCategoryLinkingCollectionsProductSubcategoryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale: InputMaybe<Scalars['String']>;
+  order: InputMaybe<Array<InputMaybe<ProductCategoryLinkingCollectionsProductSubcategoryCollectionOrder>>>;
   preview: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
+
+export enum ProductCategoryLinkingCollectionsProductCollectionOrder {
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  QuantityAsc = 'quantity_ASC',
+  QuantityDesc = 'quantity_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export enum ProductCategoryLinkingCollectionsProductSubcategoryCollectionOrder {
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
 
 export enum ProductCategoryOrder {
   NameAsc = 'name_ASC',
@@ -769,8 +843,9 @@ export enum ProductOrder {
 }
 
 /** Підкатегорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
-export type ProductSubcategory = Entry & {
+export type ProductSubcategory = Entry & _Node & {
   __typename?: 'ProductSubcategory';
+  _id: Scalars['ID'];
   category: Maybe<ProductCategory>;
   contentfulMetadata: ContentfulMetadata;
   linkedFrom: Maybe<ProductSubcategoryLinkingCollections>;
@@ -783,6 +858,7 @@ export type ProductSubcategory = Entry & {
 export type ProductSubcategoryCategoryArgs = {
   locale: InputMaybe<Scalars['String']>;
   preview: InputMaybe<Scalars['Boolean']>;
+  where: InputMaybe<ProductCategoryFilter>;
 };
 
 
@@ -839,9 +915,25 @@ export type ProductSubcategoryLinkingCollectionsEntryCollectionArgs = {
 export type ProductSubcategoryLinkingCollectionsProductCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale: InputMaybe<Scalars['String']>;
+  order: InputMaybe<Array<InputMaybe<ProductSubcategoryLinkingCollectionsProductCollectionOrder>>>;
   preview: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
+
+export enum ProductSubcategoryLinkingCollectionsProductCollectionOrder {
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  QuantityAsc = 'quantity_ASC',
+  QuantityDesc = 'quantity_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
 
 export enum ProductSubcategoryOrder {
   NameAsc = 'name_ASC',
@@ -858,6 +950,7 @@ export enum ProductSubcategoryOrder {
 
 export type Query = {
   __typename?: 'Query';
+  _node: Maybe<_Node>;
   article: Maybe<Article>;
   articleCollection: Maybe<ArticleCollection>;
   asset: Maybe<Asset>;
@@ -873,6 +966,13 @@ export type Query = {
   serviceCollection: Maybe<ServiceCollection>;
   youTubeVideo: Maybe<YouTubeVideo>;
   youTubeVideoCollection: Maybe<YouTubeVideoCollection>;
+};
+
+
+export type Query_NodeArgs = {
+  id: Scalars['ID'];
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -1004,9 +1104,20 @@ export type QueryYouTubeVideoCollectionArgs = {
   where: InputMaybe<YouTubeVideoFilter>;
 };
 
+export type ResourceLink = {
+  sys: ResourceSys;
+};
+
+export type ResourceSys = {
+  __typename?: 'ResourceSys';
+  linkType: Scalars['String'];
+  urn: Scalars['String'];
+};
+
 /** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
-export type Service = Entry & {
+export type Service = Entry & _Node & {
   __typename?: 'Service';
+  _id: Scalars['ID'];
   bgImg: Maybe<Asset>;
   contentfulMetadata: ContentfulMetadata;
   description: Maybe<ServiceDescription>;
@@ -1100,6 +1211,29 @@ export type ServiceDescriptionLinks = {
   __typename?: 'ServiceDescriptionLinks';
   assets: ServiceDescriptionAssets;
   entries: ServiceDescriptionEntries;
+  resources: ServiceDescriptionResources;
+};
+
+export type ServiceDescriptionResources = {
+  __typename?: 'ServiceDescriptionResources';
+  block: Array<ServiceDescriptionResourcesBlock>;
+  hyperlink: Array<ServiceDescriptionResourcesHyperlink>;
+  inline: Array<ServiceDescriptionResourcesInline>;
+};
+
+export type ServiceDescriptionResourcesBlock = ResourceLink & {
+  __typename?: 'ServiceDescriptionResourcesBlock';
+  sys: ResourceSys;
+};
+
+export type ServiceDescriptionResourcesHyperlink = ResourceLink & {
+  __typename?: 'ServiceDescriptionResourcesHyperlink';
+  sys: ResourceSys;
+};
+
+export type ServiceDescriptionResourcesInline = ResourceLink & {
+  __typename?: 'ServiceDescriptionResourcesInline';
+  sys: ResourceSys;
 };
 
 export type ServiceFilter = {
@@ -1191,6 +1325,29 @@ export type ServiceStagesLinks = {
   __typename?: 'ServiceStagesLinks';
   assets: ServiceStagesAssets;
   entries: ServiceStagesEntries;
+  resources: ServiceStagesResources;
+};
+
+export type ServiceStagesResources = {
+  __typename?: 'ServiceStagesResources';
+  block: Array<ServiceStagesResourcesBlock>;
+  hyperlink: Array<ServiceStagesResourcesHyperlink>;
+  inline: Array<ServiceStagesResourcesInline>;
+};
+
+export type ServiceStagesResourcesBlock = ResourceLink & {
+  __typename?: 'ServiceStagesResourcesBlock';
+  sys: ResourceSys;
+};
+
+export type ServiceStagesResourcesHyperlink = ResourceLink & {
+  __typename?: 'ServiceStagesResourcesHyperlink';
+  sys: ResourceSys;
+};
+
+export type ServiceStagesResourcesInline = ResourceLink & {
+  __typename?: 'ServiceStagesResourcesInline';
+  sys: ResourceSys;
 };
 
 export type Sys = {
@@ -1198,6 +1355,8 @@ export type Sys = {
   environmentId: Scalars['String'];
   firstPublishedAt: Maybe<Scalars['DateTime']>;
   id: Scalars['String'];
+  /** The locale that was requested. */
+  locale: Maybe<Scalars['String']>;
   publishedAt: Maybe<Scalars['DateTime']>;
   publishedVersion: Maybe<Scalars['Int']>;
   spaceId: Scalars['String'];
@@ -1240,9 +1399,19 @@ export type SysFilter = {
   publishedVersion_not_in: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
 };
 
+/**
+ * Represents a tag entity for finding and organizing content easily.
+ *         Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-concepts
+ */
+export type TaxonomyConcept = {
+  __typename?: 'TaxonomyConcept';
+  id: Maybe<Scalars['String']>;
+};
+
 /** Дані для відео YouTube [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/youTubeVideo) */
-export type YouTubeVideo = Entry & {
+export type YouTubeVideo = Entry & _Node & {
   __typename?: 'YouTubeVideo';
+  _id: Scalars['ID'];
   contentfulMetadata: ContentfulMetadata;
   id: Maybe<Scalars['String']>;
   linkedFrom: Maybe<YouTubeVideoLinkingCollections>;
@@ -1341,6 +1510,10 @@ export enum YouTubeVideoOrder {
   TitleDesc = 'title_DESC'
 }
 
+export type _Node = {
+  _id: Scalars['ID'];
+};
+
 export type CfProductCategoryNestedFilter = {
   AND: InputMaybe<Array<InputMaybe<CfProductCategoryNestedFilter>>>;
   OR: InputMaybe<Array<InputMaybe<CfProductCategoryNestedFilter>>>;
@@ -1379,6 +1552,11 @@ export type CfProductSubcategoryNestedFilter = {
   sys: InputMaybe<SysFilter>;
 };
 
+export type GetAllArticlesForSeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllArticlesForSeoQuery = { __typename?: 'Query', articleCollection: { __typename?: 'ArticleCollection', items: Array<{ __typename?: 'Article', slug: string, sys: { __typename?: 'Sys', publishedAt: any } }> } };
+
 export type GetAllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1400,6 +1578,11 @@ export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetProductsQuery = { __typename?: 'Query', categoriesList: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, order: number, nameEn: string }> }, subCategoriesList: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string, nameEn: string, category: { __typename?: 'ProductCategory', name: string } }> }, categories: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, order: number, linkedFrom: { __typename?: 'ProductCategoryLinkingCollections', productSubcategoryCollection: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string }> } } }> }, products: { __typename?: 'ProductCollection', items: Array<{ __typename?: 'Product', name: string, quantity: string, info: any, nameEn: string, quantityEn: string, infoEn: any, image: { __typename?: 'Asset', url: string }, category: { __typename?: 'ProductCategory', name: string }, subcategory: { __typename?: 'ProductSubcategory', name: string } }> } };
+
+export type GetAllServicesForSeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllServicesForSeoQuery = { __typename?: 'Query', serviceCollection: { __typename?: 'ServiceCollection', items: Array<{ __typename?: 'Service', slug: string, sys: { __typename?: 'Sys', publishedAt: any } }> } };
 
 export type GetAllServicesQueryVariables = Exact<{ [key: string]: never; }>;
 

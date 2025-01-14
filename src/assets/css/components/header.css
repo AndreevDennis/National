@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-	overflow-x: hidden;
 }
 
 .header__top {
@@ -25,17 +24,20 @@
 
 .header__main {
 	width: 100%;
-	padding: 24px 0 25px 0;
+	padding: 24px 16px 25px 16px;
 	background-color: var(--accent);
 }
 
 .header__mobile {
 	position: fixed;
-	top: 90px;
+	top: 92px;
 	right: 0;
 	max-width: 310px;
 	width: 100%;
+	padding: 0 17px 0 25px;
+	overflow-y: auto;
 	height: fit-content;
+	max-height: calc(100% - 92px);
 	background-color: var(--accent);
 	border-radius: 0px 0px 0px 30px;
 	transform: translateX(100%);
@@ -50,6 +52,31 @@
 .header__mobile-nav {
 	display: block;
 	flex-direction: column;
+}
+
+.header__mobile-btn {
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	font-family: "Days One", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	cursor: pointer;
+	color: var(--white-text);
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+	margin-top: 25px;
+	border-style: none;
+	background-color: transparent;
+}
+
+.header__mobile-btn--open > svg {
+	transform: rotate(180deg);
+}
+
+.header__mobile-btn.header__mobile-btn--open ~ .header__mobile-list {
+	padding-top: 20px;
 }
 
 .header__section {
@@ -71,6 +98,54 @@
 	gap: 25px;
 }
 
+.header__item {
+	display: none;
+	position: relative;
+}
+
+.header__navBtn {
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	font-family: "Days One", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	cursor: pointer;
+	color: var(--white-text);
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 0;
+	border-style: none;
+	background-color: transparent;
+}
+
+.header__navBtn--open > svg {
+	transform: rotate(180deg);
+}
+
+.header__subNav {
+	overflow-x: hidden;
+	overflow-y: hidden;
+	transition: max-height 0.4s ease;
+	position: absolute;
+	top: 48px;
+	left: -25px;
+	z-index: 20;
+	min-width: 290px;
+	background-color: var(--accent);
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+.header__subNav-ul {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin: 0;
+	padding: 17px 29px 25px 25px;
+	list-style-type: none;
+}
+
 .header__nav {
 	display: none;
 }
@@ -87,18 +162,34 @@
 .header__mobile-list {
 	display: flex;
 	flex-direction: column;
-	gap: 39px;
+	gap: 30px;
 	margin: 0;
-	padding: 34px 0 0 39px;
+	padding: 30px 0 0 0;
 	list-style-type: none;
 }
 
+.header__mobile-subNav {
+	overflow-x: hidden;
+	overflow-y: hidden;
+	transition: max-height 0.4s ease;
+}
+
+.header__mobile-list--first {
+	margin-top: 20px;
+	padding: 20px 0;
+	border-top: 1px solid var(--white-text);
+	border-bottom: 1px solid var(--white-text);
+}
+
 .header__link {
+	display: block;
+	width: 100%;
 	font-family: "Days One", sans-serif;
 	font-size: 16px;
 	line-height: 20px;
 	color: var(--white-text);
 	text-decoration: none;
+	text-transform: uppercase;
 }
 
 .header__lng {
@@ -117,19 +208,12 @@
 
 .header__lng--mobile {
 	display: block;
-	margin: 34px 0 100px 39px;
+	margin: 35px 0 25px 0;
 }
 
 .header__option {
 	background-color: var(--accent);
 	color: var(--white-text);
-}
-
-.header__socials {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	padding: 0 25px 19px 19px;
 }
 
 @media screen and (min-width: 1150px) {
@@ -138,7 +222,10 @@
 	}
 
 	.header__main {
-		padding: 24px 0 23px 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 24px 16px 23px 16px;
 	}
 
 	.header__mobile,
@@ -148,12 +235,16 @@
 
 	.header__section {
 		justify-content: flex-start;
-		gap: 57px;
+		gap: 20px;
 	}
 
 	.header__logo {
 		width: 199px;
 		height: 28px;
+	}
+
+	.header__item {
+		display: block;
 	}
 
 	.header__nav,
@@ -163,10 +254,25 @@
 
 	.header__list,
 	.header__wrapper {
-		gap: 70px;
+		gap: 20px;
 	}
 
 	.header__btn {
 		display: none;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.header__section {
+		gap: 57px;
+	}
+
+	.header__subNav {
+		min-width: 300px;
+	}
+
+	.header__list,
+	.header__wrapper {
+		gap: 45px;
 	}
 }

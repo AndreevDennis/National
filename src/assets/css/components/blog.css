@@ -105,7 +105,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 54px;
+	gap: 31px;
 }
 
 .blog__nav {
@@ -234,6 +234,10 @@
 	.blog__text {
 		font-size: 20px;
 		line-height: 26px;
+	}
+
+	.blog__pagination {
+		gap: 50px;
 	}
 
 	.blog__nav {

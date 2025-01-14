@@ -1,0 +1,64 @@
+.aboutUsStatistic {
+	padding: 100px 0;
+}
+
+.aboutUsStatistic__wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 21px;
+}
+
+.aboutUsStatistic__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: "Exo 2", sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 24px;
+	text-align: center;
+	margin: 0;
+}
+
+.aboutUsStatistic__item:nth-child(3) {
+	grid-column: span 2;
+}
+
+.aboutUsStatistic__item--active {
+	font-family: "Days One", sans-serif;
+	font-size: 48px;
+	font-weight: 400;
+	line-height: 61px;
+	color: var(--accent);
+	margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+	.aboutUsStatistic {
+		padding: 51px 0 66px 0;
+	}
+
+	.aboutUsStatistic__wrapper {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 20px;
+	}
+
+	.aboutUsStatistic__item {
+		text-align: left;
+		align-items: flex-start;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.aboutUsStatistic__item {
+		font-size: 24px;
+		line-height: 29px;
+	}
+
+	.aboutUsStatistic__item--active {
+		font-size: 64px;
+		line-height: 87px;
+	}
+}

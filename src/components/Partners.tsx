@@ -30,16 +30,6 @@ export const Partners: FC<PartnersProps> = ({ language, translation }) => {
 						<Image
 							className="pathners__img"
 							width="211"
-							height="65"
-							src="/img/partners/coagulant.png"
-							alt="Coa Gulant"
-							quality="100"
-						/>
-					</div>
-					<div className="parthners__wrapper">
-						<Image
-							className="pathners__img"
-							width="211"
 							height="104"
 							src="/img/partners/pripravka.png"
 							alt="Pripravka"
@@ -49,8 +39,8 @@ export const Partners: FC<PartnersProps> = ({ language, translation }) => {
 					<div className="parthners__wrapper">
 						<Image
 							className="pathners__img"
-							width="211"
-							height="73"
+							width="216"
+							height="94"
 							src="/img/partners/metro.png"
 							alt="Metro"
 							quality="100"
@@ -89,16 +79,6 @@ export const Partners: FC<PartnersProps> = ({ language, translation }) => {
 					<div className="parthners__wrapper">
 						<Image
 							className="pathners__img"
-							width="251"
-							height="178"
-							src="/img/partners/morepiva.png"
-							alt="More piva"
-							quality="100"
-						/>
-					</div>
-					<div className="parthners__wrapper">
-						<Image
-							className="pathners__img"
 							width="170"
 							height="178"
 							src="/img/partners/wog.png"
@@ -109,10 +89,30 @@ export const Partners: FC<PartnersProps> = ({ language, translation }) => {
 					<div className="parthners__wrapper">
 						<Image
 							className="pathners__img"
+							width="251"
+							height="178"
+							src="/img/partners/morepiva.png"
+							alt="More piva"
+							quality="100"
+						/>
+					</div>
+					<div className="parthners__wrapper">
+						<Image
+							className="pathners__img"
 							width="211"
 							height="127"
 							src="/img/partners/shedro.png"
 							alt="Shedro"
+							quality="100"
+						/>
+					</div>
+					<div className="parthners__wrapper">
+						<Image
+							className="pathners__img"
+							width="147"
+							height="191"
+							src="/img/partners/okko.png"
+							alt="Okko"
 							quality="100"
 						/>
 					</div>

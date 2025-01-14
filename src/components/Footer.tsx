@@ -1,5 +1,4 @@
 import React, { FC, RefObject, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { translationType } from "../utils/translation";
@@ -27,38 +26,67 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 								<svg className="footer__logo" width="195" height="30" aria-hidden="true">
 									<use xlinkHref="/img/icons.svg#preloader" />
 								</svg>
-								<ul className="footer__nav">
-									<li className="footer__elem">
-										<Link href="/#about" className="footer__link" scroll={false}>
-											{translation["navProduction"][language]}
-										</Link>
-									</li>
-									<li className="footer__elem">
-										<Link href="/#services" className="footer__link" scroll={false}>
-											{translation["navServices"][language]}
-										</Link>
-									</li>
-									<li className="footer__elem">
-										<Link href="/#products" className="footer__link" scroll={false}>
-											{translation["navProducts"][language]}
-										</Link>
-									</li>
-									<li className="footer__elem">
-										<a href="/Certificates.pdf" className="footer__link" target="_blank" rel="noreferrer noopener">
-											{translation["navCertificate"][language]}
-										</a>
-									</li>
-									<li className="footer__elem">
-										<Link href="/#partners" className="footer__link" scroll={false}>
-											{translation["navClients"][language]}
-										</Link>
-									</li>
-									<li className="footer__elem">
-										<Link href="/#blog" className="footer__link" scroll={false}>
-											{translation["navBlog"][language]}
-										</Link>
-									</li>
-								</ul>
+								<div className="footer__navs">
+									<ul className="footer__nav">
+										<li className="footer__elem">
+											<Link href="/aboutUs" className="footer__link" scroll={false}>
+												{translation["navAboutUs"][language]}
+											</Link>
+										</li>
+										{/* <li className="footer__elem">
+											<Link href="/aboutUs#history" className="footer__link" scroll={false}>
+												{translation["navHistory"][language]}
+											</Link>
+										</li> */}
+										<li className="footer__elem">
+											<Link href="/aboutUs#values" className="footer__link" scroll={false}>
+												{translation["navValues"][language]}
+											</Link>
+										</li>
+										<li className="footer__elem">
+											<Link href="/humanitarianSector" className="footer__link" scroll={false}>
+												{translation["navHumanitarianSector"][language]}
+											</Link>
+										</li>
+										{/* <li className="footer__elem">
+											<Link href="/aboutUs#team" className="footer__link" scroll={false}>
+												{translation["navTeam"][language]}
+											</Link>
+										</li> */}
+									</ul>
+									<ul className="footer__nav">
+										<li className="footer__elem">
+											<Link href="/#about" className="footer__link" scroll={false}>
+												{translation["navProduction"][language]}
+											</Link>
+										</li>
+										<li className="footer__elem">
+											<Link href="/#services" className="footer__link" scroll={false}>
+												{translation["navServices"][language]}
+											</Link>
+										</li>
+										<li className="footer__elem">
+											<Link href="/#products" className="footer__link" scroll={false}>
+												{translation["navProducts"][language]}
+											</Link>
+										</li>
+										<li className="footer__elem">
+											<a href="/Certificates.pdf" className="footer__link" target="_blank" rel="noreferrer noopener">
+												{translation["navCertificate"][language]}
+											</a>
+										</li>
+										<li className="footer__elem">
+											<Link href="/#partners" className="footer__link" scroll={false}>
+												{translation["navClients"][language]}
+											</Link>
+										</li>
+										<li className="footer__elem">
+											<Link href="/#blog" className="footer__link" scroll={false}>
+												{translation["navBlog"][language]}
+											</Link>
+										</li>
+									</ul>
+								</div>
 								<button ref={btnRef} className="footer__btn" type="button" onClick={() => openModal(btnRef)}>
 									{translation["contactBtn"][language]}
 								</button>
@@ -80,8 +108,11 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 											<use xlinkHref="/img/icons.svg#call" />
 										</svg>
 										<div>
-											<a href={`tel:${socials.phone}`} className="footer__phone">
-												{socials.phone}
+											<a href={`tel:${socials.phone1}`} className="footer__phone">
+												{socials.phone1}
+											</a>
+											<a href={`tel:${socials.phone2}`} className="footer__phone">
+												{socials.phone2}
 											</a>
 										</div>
 									</div>
@@ -109,23 +140,13 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 									</div>
 								</div>
 								<div className="footer__socials">
-									<a href="#" className="footer__social" target="_blank" rel="noreferrer noopener">
-										<Image
-											className="footer__social-img"
-											src="/img/socials/facebook.png"
-											width="44"
-											height="44"
-											alt="Facebook"
-										/>
-									</a>
-									<a href={socials.telegram} className="footer__social" target="_blank" rel="noreferrer noopener">
-										<Image
-											className="footer__social-img"
-											src="/img/socials/telegram.png"
-											width="44"
-											height="44"
-											alt="Telegram"
-										/>
+									<a
+										target="_blank"
+										rel="noreferrer noopener"
+										className="footer__social"
+										href="https://opendatabot.ua/c/13465746"
+									>
+										{translation["checkCompany"][language]}
 									</a>
 								</div>
 							</div>

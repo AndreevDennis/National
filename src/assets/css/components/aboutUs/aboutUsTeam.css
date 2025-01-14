@@ -1,0 +1,101 @@
+.aboutUsTeam {
+	border-radius: 20px;
+	padding: 46px 0 49px 0;
+	background-color: var(--accent);
+}
+
+.aboutUsTeam__title {
+	font-family: "Days One", sans-serif;
+	font-size: 30px;
+	line-height: 38px;
+	text-align: center;
+	text-transform: uppercase;
+	color: var(--white-text);
+	margin: 0 0 50px 0;
+}
+
+.aboutUsTeam__picture {
+	width: 100%;
+	height: 404px;
+	position: relative;
+	margin-bottom: 15px;
+}
+
+.aboutUsTeam__img {
+	object-fit: cover;
+	border-radius: 20px;
+}
+
+.aboutUsTeam__name {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 24px;
+	color: var(--white-text);
+	margin: 0 0 5px 0;
+}
+
+.aboutUsTeam__position {
+	font-size: 20px;
+	line-height: 24px;
+	color: var(--white-text);
+	margin: 0;
+}
+
+.aboutUsTeam__navigation {
+	margin-top: 50px;
+}
+
+.aboutUsTeam__navigation .blog__nav {
+	box-shadow: none;
+}
+
+@media screen and (min-width: 450px) {
+	.aboutUsTeam__picture {
+		height: 450px;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.aboutUsTeam__picture {
+		height: 550px;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.aboutUsTeam__picture {
+		height: 650px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.aboutUsTeam__picture {
+		height: 404px;
+	}
+}
+
+@media screen and (min-width: 870px) {
+	.aboutUsTeam__picture {
+		height: 500px;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.aboutUsTeam {
+		border-radius: 0px;
+		padding: 46px 0 54px 0;
+	}
+
+	.aboutUsTeam__title {
+		font-size: 48px;
+		line-height: 61px;
+		margin: 0 0 53px 0;
+	}
+
+	.aboutUsTeam__picture {
+		height: 404px;
+	}
+
+	.aboutUsTeam__navigation {
+		margin-top: 53px;
+	}
+}

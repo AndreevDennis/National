@@ -47,48 +47,59 @@
 	filter: grayscale(0%) contrast(100%);
 }
 
+/* borjomi */
 .parthners__wrapper:nth-child(1) > img {
 	max-width: 211px;
 	filter: grayscale(0%) contrast(20%);
 }
 
+/* pripravka */
 .parthners__wrapper:nth-child(2) > img {
-	max-width: 211px;
-}
-
-.parthners__wrapper:nth-child(3) > img {
 	max-width: 211px;
 	filter: grayscale(0%) contrast(20%);
 }
 
+/* metro */
+.parthners__wrapper:nth-child(3) > img {
+	max-width: 216px;
+}
+
+/* fozzy */
 .parthners__wrapper:nth-child(4) > img {
 	max-width: 211px;
 }
 
+/* atb */
 .parthners__wrapper:nth-child(5) > img {
 	max-width: 211px;
 }
 
+/* neftek */
 .parthners__wrapper:nth-child(6) > img {
-	max-width: 211px;
-}
-
-.parthners__wrapper:nth-child(7) > img {
 	max-width: 207px;
 }
 
+/* wog */
+.parthners__wrapper:nth-child(7) > img {
+	max-width: 168px;
+}
+
+/* morepiva */
 .parthners__wrapper:nth-child(8) > img {
 	max-width: 250px;
 }
 
+/* shedro */
 .parthners__wrapper:nth-child(9) > img {
-	max-width: 168px;
-}
-
-.parthners__wrapper:nth-child(10) > img {
 	max-width: 211px;
 }
 
+/* okko */
+.parthners__wrapper:nth-child(10) > img {
+	max-width: 147px;
+}
+
+/* blackfox */
 .parthners__wrapper:nth-child(11) > img {
 	max-width: 148px;
 	filter: grayscale(0%) contrast(20%);
@@ -98,7 +109,7 @@
 	.partners__container {
 		grid-template-columns: repeat(8, 1fr);
 		column-gap: 80px;
-		row-gap: 40px;
+		row-gap: 50px;
 	}
 
 	.parthners__wrapper:nth-child(9) {
@@ -122,6 +133,6 @@
 	.partners__title {
 		font-size: 48px;
 		line-height: 61px;
-		margin: 0 0 33px 0;
+		margin: 0 0 44px 0;
 	}
 }

@@ -17,7 +17,7 @@ export const Blog: FC<BlogProps> = ({ articles, language, translation }) => {
 
 	const sectionRef = useRef<HTMLDivElement>(null);
 
-	const articlesPerPage = 3;
+	const articlesPerPage = 1;
 	const lastArticleInex = currentPage * articlesPerPage;
 	const firstArticleIndex = lastArticleInex - articlesPerPage;
 	const currentArticles = articles.articleCollection.items.slice(firstArticleIndex, lastArticleInex);
@@ -60,7 +60,7 @@ export const Blog: FC<BlogProps> = ({ articles, language, translation }) => {
 					<button
 						className={`blog__nav blog__prev ${currentPage !== 1 ? "blog__active" : ""}`}
 						disabled={currentPage === 1}
-						aria-label="Prev 3 articles from blog"
+						aria-label="Prev 1 article from blog"
 						onClick={prevPageHandler}
 					>
 						<svg width="11" height="18" aria-hidden="true">
@@ -70,7 +70,7 @@ export const Blog: FC<BlogProps> = ({ articles, language, translation }) => {
 					<button
 						className={`blog__nav blog__next ${currentPage !== totalPages ? "blog__active" : ""} `}
 						disabled={currentPage === totalPages}
-						aria-label="Next 3 articles from blog"
+						aria-label="Next 1 article from blog"
 						onClick={nextPageHandler}
 					>
 						<svg width="11" height="18" aria-hidden="true">

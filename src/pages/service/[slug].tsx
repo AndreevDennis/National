@@ -59,7 +59,7 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 
 	return (
 		<>
-			<Seo />
+			<Seo language={language} title={language === "ua" ? `National - ${title}` : `National - ${titleEn}`} />
 			<Header language={language} translation={translation} changeLanguage={changeLanguage} />
 			<main>
 				<Modal overlay active={isActive} closeModal={closeModal} displayType="flex">
@@ -67,7 +67,7 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 				</Modal>
 				<div className="service">
 					<div className="service__wrapper">
-						<Image src={bgImg.url} alt={title} className="service__img" fill />
+						<Image src={bgImg.url} alt={language === "ua" ? title : titleEn} className="service__img" fill />
 						<h1 className="service__title">{language === "ua" ? title : titleEn}</h1>
 					</div>
 					<div className="container">
