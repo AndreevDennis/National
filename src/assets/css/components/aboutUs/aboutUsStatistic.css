@@ -49,6 +49,21 @@
 		text-align: left;
 		align-items: flex-start;
 	}
+
+	.aboutUsStatistic__item--active > span {
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	.aboutUsStatistic__item:nth-child(1) > .aboutUsStatistic__item--active > span {
+		width: 73px;
+	}
+	.aboutUsStatistic__item:nth-child(2) > .aboutUsStatistic__item--active > span {
+		width: 72px;
+	}
+	.aboutUsStatistic__item:nth-child(3) > .aboutUsStatistic__item--active > span {
+		width: 82px;
+	}
 }
 
 @media screen and (min-width: 1024px) {
@@ -60,5 +75,15 @@
 	.aboutUsStatistic__item--active {
 		font-size: 64px;
 		line-height: 87px;
+	}
+
+	.aboutUsStatistic__item:nth-child(1) > .aboutUsStatistic__item--active > span {
+		width: 97px;
+	}
+	.aboutUsStatistic__item:nth-child(2) > .aboutUsStatistic__item--active > span {
+		width: 97px;
+	}
+	.aboutUsStatistic__item:nth-child(3) > .aboutUsStatistic__item--active > span {
+		width: 109px;
 	}
 }
