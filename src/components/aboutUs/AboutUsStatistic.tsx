@@ -20,7 +20,9 @@ function animateValue(obj: HTMLSpanElement, start: number, end: number, duration
 			? Math.fround(progress * (end - start) + start)
 			: Math.floor(progress * (end - start) + start);
 
-		obj.innerHTML = value > end ? end.toFixed(fixedPoint ? 1 : 0) : value.toFixed(fixedPoint ? 1 : 0);
+		const finalValue = value < 10 && !fixedPoint ? `0${value}` : value.toFixed(fixedPoint ? 1 : 0);
+
+		obj.innerHTML = value > end ? end.toFixed(fixedPoint ? 1 : 0) : finalValue;
 
 		if (progress < 1) {
 			window.requestAnimationFrame(step);
