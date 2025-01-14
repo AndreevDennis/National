@@ -88,11 +88,11 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 											{translation["navHumanitarianSector"][language]}
 										</Link>
 									</li>
-									<li className="header__element">
+									{/* <li className="header__element">
 										<Link href="/aboutUs#team" className="header__link" onClick={toggleDeskSubNav} scroll={false}>
 											{translation["navTeam"][language]}
 										</Link>
-									</li>
+									</li> */}
 								</ul>
 							</div>
 						</div>
@@ -180,11 +180,11 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 									{translation["navHumanitarianSector"][language]}
 								</Link>
 							</li>
-							<li className="header__element">
+							{/* <li className="header__element">
 								<Link href="/aboutUs#team" className="header__link" onClick={toggleMobileNav} scroll={false}>
 									{translation["navTeam"][language]}
 								</Link>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 					<ul className="header__mobile-list">

@@ -9,16 +9,18 @@ type AboutUsStatisticProps = {
 	translation: AboutUsType;
 };
 
-function animateValue(obj: HTMLSpanElement, start: number, end: number, duration: number) {
+function animateValue(obj: HTMLSpanElement, start: number, end: number, duration: number, fixedPoint = false) {
 	let startTimestamp: DOMHighResTimeStamp | null = null;
 
 	const step = (timestamp: DOMHighResTimeStamp) => {
 		if (!startTimestamp) startTimestamp = timestamp;
 
 		const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-		const value = Math.floor(progress * (end - start) + start);
+		const value = fixedPoint
+			? Math.fround(progress * (end - start) + start)
+			: Math.floor(progress * (end - start) + start);
 
-		obj.innerHTML = value > end ? end.toFixed(0) : value.toFixed(0);
+		obj.innerHTML = value > end ? end.toFixed(fixedPoint ? 1 : 0) : value.toFixed(fixedPoint ? 1 : 0);
 
 		if (progress < 1) {
 			window.requestAnimationFrame(step);
@@ -46,7 +48,7 @@ export const AboutUsStatistic: FC<AboutUsStatisticProps> = ({ language, translat
 
 	useEffect(() => {
 		if (isVisible3 && aboutUsStatistic3Ref.current) {
-			animateValue(aboutUsStatistic3Ref.current, 0, 25, 1500);
+			animateValue(aboutUsStatistic3Ref.current, 0, 2.5, 1500, true);
 		}
 	}, [isVisible3, aboutUsStatistic3Ref]);
 

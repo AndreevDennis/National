@@ -48,11 +48,11 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 												{translation["navHumanitarianSector"][language]}
 											</Link>
 										</li>
-										<li className="footer__elem">
+										{/* <li className="footer__elem">
 											<Link href="/aboutUs#team" className="footer__link" scroll={false}>
 												{translation["navTeam"][language]}
 											</Link>
-										</li>
+										</li> */}
 									</ul>
 									<ul className="footer__nav">
 										<li className="footer__elem">

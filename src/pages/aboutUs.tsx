@@ -6,7 +6,7 @@ import { AboutUsBanner } from "../components/aboutUs/AboutUsBanner";
 import { AboutUsStatistic } from "../components/aboutUs/AboutUsStatistic";
 import { AboutUsValues } from "../components/aboutUs/AboutUsValues";
 import { AboutUsCompany } from "../components/aboutUs/AboutUsCompany";
-import { AboutUsTeam } from "../components/aboutUs/AboutUsTeam";
+// import { AboutUsTeam } from "../components/aboutUs/AboutUsTeam";
 import { AboutUsForm } from "../components/aboutUs/AboutUsForm";
 
 import { useModal } from "../hooks/useModal";
@@ -30,7 +30,7 @@ const Home: NextPage = () => {
 				<AboutUsStatistic language={language} translation={aboutUs} />
 				<AboutUsValues language={language} translation={aboutUs} />
 				<AboutUsCompany language={language} translation={aboutUs} />
-				<AboutUsTeam language={language} translation={aboutUs} />
+				{/* <AboutUsTeam language={language} translation={aboutUs} /> */}
 				<AboutUsForm language={language} translation={translation} />
 			</main>
 			<Footer language={language} translation={translation} openModal={openModal} />
